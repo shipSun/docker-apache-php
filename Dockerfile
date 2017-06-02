@@ -3,8 +3,9 @@ MAINTAINER shipsun/centos6.8 <543999860@qq.com>
 LABEL name="ELK" \
     vendor="shipSun" \
     build-date="2017-06-02"
-RUN yum -y install wget unzip libxml2-devel openssl-devel bzip2-devel curl-devel libjpeg-devel libpng-devel libXpm-devel freetype-devel gmp-devel libmcrypt-devel mysql-devel aspell-devel recode-devel icu libicu-devel gcc gcc-c++pcre prce-devel zlib-devel
+RUN yum -y install wget unzip libxml2-devel openssl-devel bzip2-devel curl-devel libjpeg-devel libpng-devel libXpm-devel freetype-devel gmp-devel libmcryt-devel libmcrypt-devel mysql-devel  aspell-devel recode-devel icu libicu-devel gcc gcc-c++ pcre pcre-devel zlib-devel
 
+COPY libmcrypt-2.5.7.tar.gz /home
 COPY httpd-2.4.25.tar.gz /home
 COPY apr-1.5.2.tar.gz /home
 COPY apr-util-1.5.4.tar.gz /home
@@ -44,6 +45,11 @@ RUN cd /home && tar zxvf httpd-2.4.25.tar.gz && cd httpd-2.4.25 && ./configure \
 
 RUN groupadd www
 RUN useradd -g www -s /bin/nologin www
+
+RUN cd /home && tar zxvf libmcrypt-2.5.7.tar.gz && cd libmcrypt-2.5.7 && ./configure && make && make install && cd /home && rm -rf libmcrypt-2.5.7 libmcrypt-2.5.7.tar.gz
+
+RUN echo "/usr/local/lib">> /etc/ld.so.conf.d/local.conf
+RUN ldconfig -v
 
 RUN cd /home && tar zxvf php-7.1.5.tar.gz && cd php-7.1.5 && ./configure \
 --prefix=/usr/local/php7 \
