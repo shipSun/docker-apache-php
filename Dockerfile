@@ -1,3 +1,4 @@
+FROM shipsun/centos6.8
 MAINTAINER shipsun/centos6.8 <543999860@qq.com>
 LABEL name="ELK" \
     vendor="shipSun" \
