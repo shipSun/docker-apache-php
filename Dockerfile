@@ -99,7 +99,7 @@ RUN cd /home && tar zxvf php-7.1.5.tar.gz && cd php-7.1.5 && ./configure \
 --with-fpm-group=www \
 --without-gdbm \
 --disable-fileinfo \
---with-apxs2=/usr/local/apache/bin/apxs && make && make install && cd ext/pdo_mysql && ./configure --with-php-config=/usr/local/php7/bin/php-config --with-pdo-mysql=mysqlnd && make && make install && cd /home && rm -rf php-7.1.5.tar.gz php-7.1.5
+--with-apxs2=/usr/local/apache/bin/apxs && make && make install && cd ext/pdo_mysql && /usr/local/php7/bin/phpize && ./configure --with-php-config=/usr/local/php7/bin/php-config --with-pdo-mysql=mysqlnd && make && make install && cd /home && rm -rf php-7.1.5.tar.gz php-7.1.5
 
 RUN cd /home && tar zxvf redis-3.1.2.tgz && cd redis-3.1.2 && /usr/local/php7/bin/phpize && ./configure --with-php-config=/usr/local/php7/bin/php-config && make && make install && cd /home && rm -rf redis-3.1.2 redis-3.1.2.tgz
 
