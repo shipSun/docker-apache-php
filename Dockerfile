@@ -125,7 +125,7 @@ COPY certifi-2017.4.17.tar.gz /home
 COPY packaging-16.8.tar.gz /home
 COPY setuptools-35.0.2.zip /home
 
-RUN cd /home/ && tar zxvf Python-2.7.13.tar.gz && cd Python-2.7.13 &&  ./configure --prefix=/usr/local/python2.7 && make && make install && cd /home && rm -rf Python-2.7.13.tgz Python-2.7.13
+RUN cd /home/ && tar zxvf Python-2.7.13.tgz && cd Python-2.7.13 &&  ./configure --prefix=/usr/local/python2.7 && make && make install && cd /home && rm -rf Python-2.7.13.tgz Python-2.7.13
 RUN cd /home/ && tar zxvf appdirs-1.4.3.tar.gz && cd appdirs-1.4.3 && /usr/local/python2.7/bin/python2 setup.py install && cd /home && rm -rf appdirs-1.4.3.tar.gz appdirs-1.4.3
 RUN cd /home/ && tar zxvf certifi-2017.4.17.tar.gz && cd certifi-2017.4.17 && /usr/local/python2.7/bin/python2 setup.py install && cd /home && rm -rf certifi-2017.4.17.tar.gz certifi-2017.4.17
 RUN cd /home/ && tar zxvf pyparsing-2.2.0.tar.gz && cd pyparsing-2.2.0 && /usr/local/python2.7/bin/python2 setup.py install && cd /home && rm -rf pyparsing-2.2.0.tar.gz pyparsing-2.2.0
