@@ -9,14 +9,9 @@ COPY libmcrypt-2.5.7.tar.gz /home
 COPY httpd-2.4.25.tar.gz /home
 COPY apr-1.5.2.tar.gz /home
 COPY apr-util-1.5.4.tar.gz /home
-#RUN cd /home && wget -c https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.25.tar.gz
-#RUN cd /home && wget -c https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-1.5.2.tar.gz
-#RUN cd /home && wget -c https://mirrors.tuna.tsinghua.edu.cn/apache/apr/apr-util-1.5.4.tar.gz
 
 COPY php-7.1.5.tar.gz /home
 COPY redis-3.1.2.tgz /home
-#RUN cd /home && wget -c http://cn2.php.net/distributions/php-7.1.5.tar.gz
-#RUN cd /home && wget -c http://pecl.php.net/get/redis-3.1.2.tgz
 
 RUN cd /home && wget -c https://github.com/shipSun/apache/archive/master.zip -O apache-master.zip
 RUN cd /home && wget -c https://github.com/shipSun/php/archive/master.zip -O php-master.zip
@@ -137,5 +132,4 @@ RUN cd /home/ && tar zxvf ez_setup-0.9.tar.gz && cd ez_setup-0.9 && /usr/local/p
 RUN /usr/local/python2.7/bin/easy_install pip
 RUN /usr/local/python2.7/bin/pip install supervisor
 RUN /usr/local/python2.7/bin/echo_supervisord_conf > /etc/supervisord.conf
-
 
