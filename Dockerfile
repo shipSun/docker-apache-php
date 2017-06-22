@@ -1,3 +1,4 @@
+#包下载地址 http://pan.baidu.com/s/1bppMmp5
 FROM shipsun/centos6.8
 MAINTAINER shipsun/centos6.8 <543999860@qq.com>
 LABEL name="ELK" \
